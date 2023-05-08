@@ -1,0 +1,116 @@
+body {
+    background-color: rgb(75, 49, 49);
+}
+* {
+    box-sizing: border-box;
+}
+
+.parcheesi-container .parcheesi {
+
+    height: 451px;
+    width: 100%;
+    background-image: url('../assets/parcheesi-bg.jpg');
+    background-size: contain;
+    position: relative;
+}
+.parcheesi-container {
+    width: 450px;
+    margin: 20px auto;
+}
+.player-pieces {
+    height: 100%;
+    width: 100%;
+}
+
+.player-piece {
+    width: 4%;
+    height: 4%;
+    border: 2px solid;
+    border-radius: 13px;
+    position: absolute;
+    transform: translate(50%, 50%);
+    transition: all 1.2s;
+    z-index: 1;
+
+}
+.player-piece.highlight {
+    cursor: pointer;
+    border: 2px dashed;
+    animation: spin 1s infinite linear;
+}
+@keyframes spin {
+    0% {
+        transform: translate(50%, 50%) rotate(0deg);
+    }
+    50% {
+        transform: translate(50%, 50%) rotate(180deg) scale(1.4);
+    }
+    100% {
+        transform: translate(50%, 50%) rotate(360deg);
+    }
+}
+
+[player-id="P1"].player-piece {
+    background-color: yellow;
+}
+
+[player-id="P2"].player-piece {
+    background-color: red;
+}
+
+.player-base {
+    border-radius: 100px;
+    width: 32%;
+    height: 32%;
+    border: 24px solid;
+    position: absolute;
+}
+
+.player-bases [player-id="P1"].player-base {
+    bottom: 4px;
+    left: 2px;
+    border-color: yellow;
+}
+
+.player-bases [player-id="P2"].player-base {
+    top: 2px;
+    right: 4px;
+    border-color: red;
+}
+
+.player-base.highlight {
+    animation: border-blink .9s infinite ease-in-out;
+}
+
+@keyframes border-blink {
+    50% {
+        border-color: rgba(255, 255, 255, 0.425);
+    }
+}
+
+.btn {
+    padding: 8px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 19px;
+}
+
+.btn:disabled {
+    opacity: 0.7;
+}
+
+.btn-dice {
+    background-color: #7c3a3a;
+    color: white;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.dice-value {
+    font-size: 24px;
+    font-weight: bold;
+}
